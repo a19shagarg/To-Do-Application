@@ -37,7 +37,7 @@ It helps users manage daily tasks efficiently.
 
 - Search & edit tasks
 - Add due dates
-- GUI version (Tkinter)
+
 - Web version
 
 ---
