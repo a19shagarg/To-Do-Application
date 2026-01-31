@@ -1,59 +1,49 @@
-# 📝 Python To-Do List Application
+# 📝 Python To-Do List App
 
-A simple command-line based To-Do List application built using Python.  
-This project helps users manage daily tasks with features like adding, viewing, deleting, and marking tasks as completed.
+A simple command-line To-Do List application built using Python.  
+It helps users manage daily tasks efficiently.
 
 ---
 
 ## 🚀 Features
 
-- Add new tasks
-- View all tasks
-- Delete tasks
-- Mark tasks as done
-- Save tasks in a file
-- Load tasks automatically on startup
+- Add, view, delete tasks
+- Mark tasks as completed
+- Automatically saves data
+- Loads tasks on startup
 
 ---
 
-## 🛠 Technologies Used
+## 🛠 Technologies
 
 - Python 3
 - File Handling
-- Lists
-- Functions
-
----
-
-## 📂 Project Structure
+- Lists & Functions
 
 ---
 
 ## ▶️ How to Run
 
-1. Make sure Python is installed:
+1. Install Python 3
+2. Clone the repository
+3. Open the project folder
+4. Run:
 
-2. Clone this repository:
-<ripository link!>
+   python main.py
 
-3. Go inside the folder:
-cd todo-app
+---
 
-4. Run the program:
-python main.py
+## 🚀 Future Plans
 
-<git-repository link>
-
-## sample output
-## 🚀 Future Improvements
-
-- Edit existing tasks
-- Search tasks
+- Search & edit tasks
 - Add due dates
-- Create GUI version
-- Create web version
-##Author
+- GUI version (Tkinter)
+- Web version
 
-Anusha Garg  
+---
+
+## 👩‍💻 Author
+
+**Anusha Garg**  
 Second Semester Student  
 Learning Python & Web Development

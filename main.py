@@ -1,6 +1,9 @@
 # To Do application
 FILE_NAME = "tasks.txt"
 
+PENDING = "[ ]"
+DONE = "[x]"
+
 #load tasks from file
 def tasks_load():
     tasks=[]
@@ -13,6 +16,7 @@ def tasks_load():
 
     except FileNotFoundError:
         pass
+
     return tasks
 
 # save tasks to file
@@ -27,17 +31,24 @@ def view_tasks(tasks):
         print("\n no tasks available\n")
         return 
     else:
-        print("-- Your Tasks --")
+        print("\n -- Your Tasks --\n ")
+
         for i,task in enumerate(tasks,1):# giving the task its number starting from 1
             print(f"{i}. {task}")
         print()
 
 # add tasks
 def add_tasks(tasks):
-    task=input("Add new task:")
-    tasks.append("[ ]"+ task)# adding the status code 
+    task=input("Add new task:").strip()
+
+    if not task:
+        print("Task cannot be empty!\n")
+        return
+
+    tasks.append(PENDING +" "+ task)# adding the status code 
     # empty means not done , cross inside the bracket means done
     tasks_save(tasks)# again saving this new task
+
     print("\n Task Added succesfully!\n")
 
 
@@ -49,15 +60,17 @@ def delete_tasks(tasks):
         return
     try:
         task_num=int(input("\n Enter the task number to delete\n"))
-    except:
-        print("enter a valid number \n ")
+    
 
         if 1<=task_num<=len(tasks):
             removed=tasks.pop(task_num-1)
             tasks_save(tasks)
-            print("\n Removed:\n", removed, "\n")
+             print(f"\nRemoved: {removed}\n")
         else:
-            print("\n invalid input \n")
+            print("Invalid task number!\n")
+
+    except:
+        print("enter a valid number \n ")
     
 
 # mark tasks as done 
@@ -68,25 +81,31 @@ def marks_done(tasks):
     try:
         num=int(input("Enter the task number to be marked:"))
         task=tasks[num-1]# 0 index is first item of our to do list
-        if task.startswith("[x]"):
+        if task.startswith(DONE):
             print("\n already completed\n")
         else:
-            tasks[num-1]=task.replace("[ ]","[x]",1)# replacing onlythe first occurence otherwise it would have replaced every bracket
+            tasks[num-1]=task.replace(PENDING,DONE,1)# replacing onlythe first occurence otherwise it would have replaced every bracket
+
             tasks_save(tasks)
+
             print("Task marked as done! \n")
-    except:
+    except ValueError:
         print("Invalid input!\n")
+
+
 
 # Main menu
 def main():
     tasks = tasks_load()   
     while True:
-        print("-- TO-DO LIST --")
+        print("====== TO-DO LIST ======")
         print("1. Add Task")
         print("2. View Tasks")
         print("3. Delete Task")
         print("4. Mark Task as Done")
         print("5. Exit")
+        print("========================")
+
         choice = input("Enter your choice: ")
 
         if choice == "1":
@@ -102,11 +121,12 @@ def main():
             marks_done(tasks)
 
         elif choice == "5":
-            print("Goodbye!")
+           print("\nGoodbye! Have a productive day 😊")
             break
 
         else:
-            print("Invalid choice!\n")
+            print("Invalid choice! Try again.\n")
+
 
 # Run program
 if __name__ == "__main__":

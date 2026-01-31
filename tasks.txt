@@ -1,0 +1,4 @@
+[x] study
+[x] python
+[x] game
+[x] homework
